@@ -91,9 +91,10 @@ class MusicLibraryController
         genre_songs.each {|song|puts "#{genre_songs.index(song) + 1}. #{song.artist.name} - #{song.name}"} unless genre_songs == nil
   end
 
+  
   def play_song
     puts "Which song number would you like to play?"
-    song_names = self.song_array
+    song_names = self.list_songs
     user_input = gets.chomp.to_i
     if user_input > 0 && user_input <= self.library.size
       chosen_input = song_names[user_input - 1]
