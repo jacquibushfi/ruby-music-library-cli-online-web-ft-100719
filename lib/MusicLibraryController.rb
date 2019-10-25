@@ -20,23 +20,25 @@ class MusicLibraryController
 
      user_input = gets.chomp.downcase
 
-    case user_input
-      when "list songs"
-        self.list_songs
-      when "list artists"
-        self.list_artists
-      when "list genres"
-        self.list_genres
-      when "list songs by artist"
-        self.list_songs_by_artist
-      when "list songs by genre"
-        self.list_songs_by_genre
-      when "exit"
-        'exit'
-    else
-      call
-    end
- end
+     case user_input
+     when "list songs"
+       self.list_songs
+     when "list artists"
+       self.list_artists
+     when "list genres"
+       self.list_genres
+     when "list artist"
+       self.list_songs_by_artist
+     when "list genre"
+       self.list_songs_by_genre
+     when "play song"
+       self.play_song
+     when "exit"
+       'exit'
+     else
+       call
+     end
+   end
 
  def library(klass = Song)
    sorted_library = klass.all.collect{|object|object if object.class == klass }
@@ -64,7 +66,6 @@ class MusicLibraryController
   end
 
   def list_songs_by_artist
-      self.list_songs
       puts "Please enter the name of an artist:"
       user_input = gets.chomp
       artist_songs = []
